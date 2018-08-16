@@ -1,25 +1,32 @@
-<mat-card style="margin-left: 5%; margin-top: 5%; margin-right: 5%; text-align: center">
 
-  <img class="user-icon" src="http://www.1000springs.org.nz/static/img/icons/login.png">
+  <mat-card >
 
-  <mat-form-field>
-    <input matInput placeholder="Email">
-  </mat-form-field>
+    <img class="user-icon" src="http://www.1000springs.org.nz/static/img/icons/login.png">
 
-  <mat-form-field>
-    <input matInput type="password" placeholder="Password">
-  </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email">
+    </mat-form-field>
 
-  <button mat-raised-button color="primary">SIGN IN</button>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">SIGN IN</button>
 
 
-  <br>
-  <hr>
+    <br>
+    <hr>
 
-  <button class="social-login-button-google"
-          mat-raised-button type="button">GOOGLE</button>
-  <button class="social-login-button-fb"
-          mat-raised-button type="button">FACEBOOK</button>
-  <button class="social-login-button-github"
-          mat-raised-button type="button">GITHUB</button>
-</mat-card>
+    <button class="social-login-button-google"
+            mat-raised-button type="button"
+            (click)="onGoogleSignIn()">GOOGLE
+    </button>
+    <button class="social-login-button-fb"
+            mat-raised-button type="button"
+            (click)="onFBSignIn()">FACEBOOK
+    </button>
+    <button class="social-login-button-github"
+            mat-raised-button type="button"
+            (click)="onGitHubSignIn()">GITHUB
+    </button>
+  </mat-card>

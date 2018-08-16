@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>Today Eating</mat-card-title>
+  <mat-card-content>
+    <div>
+      <div>{{ today | date: 'yyyy-MM-dd'}}</div>
+      <div>{{foodTotal.caloricity?.toFixed(2)}}kKal</div>
+    </div>
+  </mat-card-content>
+  <mat-card-content>
+    Protein: {{foodTotal.protein ? foodTotal.protein.toFixed(2) : 0.0}}g
+    / Fat: {{foodTotal.fat ? foodTotal.fat.toFixed(2) : 0.0}}g
+    / Carbs: {{foodTotal.carbohydrates ? foodTotal.carbohydrates.toFixed(2) : 0.0}}g
+  </mat-card-content>
+</mat-card>
+
+
+<div *ngFor="let food of foods">
+
+  <mat-card>
+    <mat-card-title>{{food.foodCalculated.localizedName}}</mat-card-title>
+    <mat-card-content>
+      <div>
+        <!-- LEFT -->
+        <div>{{food.time.toDate() | date: 'hh:mm'}}</div>
+        <div>{{food.foodCalculated.caloricity}}kKal out of {{food.weight}}g</div>
+      </div>
+    </mat-card-content>
+    <mat-card-content>
+      Protein: {{food.foodCalculated.protein ? food.foodCalculated.protein : 0.0}}g
+      / Fat: {{food.foodCalculated.fat ? food.foodCalculated.fat : 0.0}}g
+      / Carbs: {{food.foodCalculated.carbohydrates ? food.foodCalculated.carbohydrates : 0.0}}g
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button color="red" (click)="onRemoveFood(food)">REMOVE</button>
+      <!--<button mat-raised-button >JUST ATE</button>-->
+    </mat-card-actions>
+  </mat-card>
+</div>

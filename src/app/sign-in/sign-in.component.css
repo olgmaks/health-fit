@@ -1,13 +1,22 @@
+mat-card {
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-right: 5%;
+  max-width: 500px;
+  text-align: center
+}
 
 mat-form-field,
 button {
   width: 100%;
-  margin-top: 5%;
+  margin-top: 20px;
 }
 
 
 .user-icon {
   width: 30%;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .social-login{

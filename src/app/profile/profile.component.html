@@ -1,0 +1,25 @@
+
+<mat-card >
+
+  <img class="user-icon" [src]="authUser.photoURL">
+
+  <mat-form-field>
+    <input matInput [placeholder]="authUser.name" disabled>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput  [placeholder]="authUser.email" disabled>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput  [placeholder]="'Local:' + authUser.local" disabled>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Daily target: 1600kKal"  >
+  </mat-form-field>
+
+  <!--<button mat-raised-button color="primary">SIGN IN</button>-->
+
+
+</mat-card>

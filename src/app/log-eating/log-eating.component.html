@@ -1,32 +1,49 @@
 <mat-card style="margin-left: 5%; margin-top: 5%; margin-right: 5%">
 
   <mat-card-title>New Eating</mat-card-title>
+  <form [formGroup]="newEatForm"
+        (ngSubmit)="onSubmitNewEatForm()">
+    <mat-form-field  appearance="outline">
+      <mat-label>Food</mat-label>
+      <mat-select placeholder="Food" [(value)]="foodSelected.id" (valueChange)="onSelectFood($event)">
+        <mat-option
+          *ngFor="let food of foods"
+          value="{{food.id}}">
+          {{food.localizedName}}, {{food.caloricity}}kKal, GI: {{food.gi}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-select placeholder="Food">
-      <mat-option value="option">Chicken, 60kKal / 100grams, GI: 45</mat-option>
-      <mat-option value="option">Potato, 80kKal / 100grams, GI: 15</mat-option>
-      <mat-option value="option">Apple, 50kKal / 100grams, GI: 60</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <!--<mat-form-field *ngIf="foodSelected">-->
+    <!--<mat-label>Energy cap: {{foodSelected.caloricity}} kKal / 100 grams</mat-label>-->
+    <!--<input matInput formControlName="caloricity100g">-->
+    <!--</mat-form-field>-->
 
-  <mat-form-field>
-    <mat-label>Energy cap: 60 kKal / 100 grams</mat-label>
-    <input matInput disabled>
-  </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Glycemic index: 30</mat-label>
-    <input matInput disabled>
-  </mat-form-field>
+    <!--<mat-form-field *ngIf="foodSelected">-->
+    <!--<mat-label>Glycemic index: {{foodSelected.gi}}</mat-label>-->
+    <!--<input matInput formControlName="gi">-->
+    <!--</mat-form-field>-->
 
-  <mat-form-field>
-    <input matInput placeholder="Weight, grams">
-  </mat-form-field>
+    <mat-form-field  appearance="outline" >
+      <mat-label>Weight, grams</mat-label>
+      <input matInput placeholder="Weight, grams" formControlName="weight" #weightInput (ngModel)="weightInput"
+             type="number">
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput disabled placeholder="60 kKal">
-  </mat-form-field>
-
-  <button mat-raised-button color="primary">SAVE</button>
+    <div *ngIf="weightInput.value">
+      <mat-form-field>
+        <input matInput
+               value="{{getKkalForCurrentFood(weightInput.value).toFixed(2) + 'kKal' }}"
+               disabled>
+      </mat-form-field>
+      <input matInput
+             value="{{'Protein: ' + getProteinForCurrentFood(weightInput.value).toFixed(2) + 'g' }}" >
+      <input matInput
+             value="{{'Fat: ' + getFatForCurrentFood(weightInput.value).toFixed(2) + 'g' }}" >
+      <input matInput
+             value="{{'Carbohydrates: ' + getCarbForCurrentFood(weightInput.value).toFixed(2) + 'g' }}" >
+    </div>
+    <button mat-raised-button color="primary" [disabled]="!foodSelected || !weightInput.value || saveButtonDisabled">SAVE</button>
+  </form>
 </mat-card>

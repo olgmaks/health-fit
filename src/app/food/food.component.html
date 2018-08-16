@@ -1,0 +1,27 @@
+<mat-form-field appearance="outline">
+  <mat-label>Filter Products</mat-label>
+  <input matInput placeholder="Filter Products" (ngModel)="filteredText" #filteredText (input)="onFoodFilter($event)">
+</mat-form-field>
+
+<div *ngFor="let food of (foodsFiltered && filteredText.value ? foodsFiltered : foods)">
+
+  <mat-card>
+    <mat-card-title>{{food.localizedName}}</mat-card-title>
+    <mat-card-content>
+      <div>
+        <!-- LEFT -->
+        <div>{{food.caloricity}} kKal</div>
+      </div>
+    </mat-card-content>
+    <mat-card-content>
+      Protein: {{food.protein ? food.protein : 0.0}}g
+      / Fat: {{food.fat ? food.fat : 0.0}}g
+      / Carbs: {{food.carbohydrates ? food.carbohydrates : 0.0}}g
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="onJustAteClick(food)">JUST ATE</button>
+      <!--<button mat-raised-button >JUST ATE</button>-->
+    </mat-card-actions>
+  </mat-card>
+</div>
