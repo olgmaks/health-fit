@@ -1,0 +1,33 @@
+
+mat-form-field,
+button {
+  width: 100%;
+  margin-top: 5%;
+}
+
+
+.user-icon {
+  width: 30%;
+}
+
+.social-login{
+  height: 36px;
+}
+
+.social-login-container {
+  text-align: left;
+}
+
+.social-login-button-fb {
+  background-color: #3B5998;
+  color: white
+}
+.social-login-button-google {
+  background-color: #d34836;
+  color: white
+}
+.social-login-button-github {
+  background-color: #333;
+  color: white
+}
+

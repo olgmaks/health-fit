@@ -1,0 +1,26 @@
+.form-container {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 10%;
+  text-align: center;
+}
+
+mat-form-field,
+button {
+  width: 100%;
+  margin-top: 5%;
+}
+
+
+.user-icon {
+  width: 30%;
+}
+
+.social-login{
+  height: 36px;
+}
+
+.social-login-container {
+  text-align: left;
+}
